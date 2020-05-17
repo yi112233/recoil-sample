@@ -2,7 +2,7 @@ import React from 'react'
 import { useRecoilValue } from "recoil";
 import { todoListStatsState } from '../states/selectors/TodoListStatsState'
 
-export function TodoListStats() {
+const TodoListStats: React.FC = () => {
   const {
     totalNum,
     totalCompletedNum,
@@ -21,3 +21,5 @@ export function TodoListStats() {
     </ul>
   )
 }
+
+export default TodoListStats

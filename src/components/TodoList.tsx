@@ -1,12 +1,12 @@
 import React from 'react'
 import { useRecoilValue } from 'recoil'
-import { TodoListStats } from './TodoListStats'
-import { TodoListFilters } from './TodoListFilters'
-import { TodoItemCreator } from './TodoItemCreator'
-import { TodoItem } from './TodoItem';
+import TodoListStats from './TodoListStats'
+import TodoListFilters from './TodoListFilters'
+import TodoItemCreator from './TodoItemCreator'
+import TodoItem from './TodoItem';
 import { filteredTodoListState } from '../states/selectors/FilteredTodoListState'
 
-export function TodoList() {
+const TodoList: React.FC = () => {
   const todoList = useRecoilValue(filteredTodoListState)
 
   return (
@@ -21,3 +21,5 @@ export function TodoList() {
     </>
   )
 }
+
+export default TodoList

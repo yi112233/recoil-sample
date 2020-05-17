@@ -1,20 +1,16 @@
-import React from 'react'
+import React, { ChangeEvent } from 'react'
 import { useRecoilState } from 'recoil'
-import { todoListState } from '../states/atoms/TodoListState'
+import { todoListState, TodoList, TodoItem } from '../states/atoms/TodoListState'
 
-function replaceItemAtIndex(arr, index, newValue) {
-  return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)]
+type Props = {
+  item: TodoItem,
 }
 
-function removeItemAtIndex(arr, index) {
-  return [...arr.slice(0, index), ...arr.slice(index + 1)]
-}
-
-export function TodoItem({item}) {
+const Todo: React.FC<Props> = ({item}) => {
   const [todoList, setTodoList] = useRecoilState(todoListState)
   const index = todoList.findIndex((listItem) => listItem === item)
 
-  const editItemText = ({target: {value}}) => {
+  const editItemText = ({target: {value}}: ChangeEvent<HTMLInputElement>): void => {
     const newList = replaceItemAtIndex(todoList, index, {
       ...item,
       text: value,
@@ -23,7 +19,7 @@ export function TodoItem({item}) {
     setTodoList(newList)
   }
 
-  const toggleItemCompletion = () => {
+  const toggleItemCompletion = (): void => {
     const newList = replaceItemAtIndex(todoList, index, {
       ...item,
       isComplete: !item.isComplete,
@@ -32,7 +28,7 @@ export function TodoItem({item}) {
     setTodoList(newList)
   }
 
-  const deleteItem = () => {
+  const deleteItem = (): void => {
     const newList = removeItemAtIndex(todoList, index)
 
     setTodoList(newList)
@@ -50,3 +46,13 @@ export function TodoItem({item}) {
     </div>
   )
 }
+
+function replaceItemAtIndex(arr: TodoList, index: number, newValue: TodoItem): TodoList {
+  return [...arr.slice(0, index), newValue, ...arr.slice(index + 1)]
+}
+
+function removeItemAtIndex(arr: TodoList, index: number): TodoList {
+  return [...arr.slice(0, index), ...arr.slice(index + 1)]
+}
+
+export default Todo

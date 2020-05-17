@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState, ChangeEvent } from 'react'
 import { useSetRecoilState } from 'recoil'
 import { todoListState } from '../states/atoms/TodoListState'
 
-let id = 0
-function getId() {
+let id: number = 0
+function getId(): number {
   return id++
 }
 
-export function TodoItemCreator() {
+const TodoItemCreator: React.FC = () => {
   const [inputValue, setInputValue] = useState('')
   const setTodoList = useSetRecoilState(todoListState)
 
-  const addItem = () => {
+  const addItem = (): void => {
     setTodoList((oldTodoList) => [
       ...oldTodoList,
       {
@@ -22,7 +22,7 @@ export function TodoItemCreator() {
     ])
   }
 
-  const onChange = ({target: {value}}) => setInputValue(value)
+  const onChange = ({target: {value}}: ChangeEvent<HTMLInputElement>) => setInputValue(value)
 
   return (
     <div>
@@ -31,3 +31,5 @@ export function TodoItemCreator() {
     </div>
   )
 }
+
+export default TodoItemCreator
