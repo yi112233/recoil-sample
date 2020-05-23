@@ -1,6 +1,6 @@
 import React from 'react'
 
-import TodoList from '../TodoList/Presentation'
+import TodoList from 'components/TodoList/Presentation'
 
 const Presentation: React.FC = () => (
   <div>

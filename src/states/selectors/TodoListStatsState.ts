@@ -1,5 +1,5 @@
 import { selector } from 'recoil'
-import { filteredTodoListState } from './FilteredTodoListState' 
+import { filteredTodoListState } from 'states/selectors/FilteredTodoListState' 
 
 export const todoListStatsState = selector({
   key: 'todoListStatsState',

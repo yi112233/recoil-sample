@@ -1,7 +1,7 @@
 import React from 'react'
 import { RecoilRoot } from 'recoil'
 
-import Presentation from './Presentation'
+import Presentation from 'components/App/Presentation'
 
 const Container = () => (
   <RecoilRoot>

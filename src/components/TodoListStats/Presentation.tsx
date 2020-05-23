@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRecoilValue } from "recoil";
-import { todoListStatsState } from '../../states/selectors/TodoListStatsState'
+import { todoListStatsState } from 'states/selectors/TodoListStatsState'
 
 const TodoListStats: React.FC = () => {
   const {

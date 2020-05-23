@@ -1,8 +1,8 @@
 import React, { ChangeEvent } from 'react'
 import { useRecoilState } from 'recoil'
-import { todoListState, TodoList, TodoItem } from '../../states/atoms/TodoListState'
+import { todoListState, TodoList, TodoItem } from 'states/atoms/TodoListState'
 
-import Presentation from './Presentation'
+import Presentation from 'components/TodoItem/Presentation'
 
 type Props = {
   item: TodoItem,

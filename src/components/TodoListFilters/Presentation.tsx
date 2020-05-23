@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from 'react'
 import { useRecoilState } from 'recoil'
 
-import { todoListFilterState } from '../../states/atoms/TodoListFilterState'
+import { todoListFilterState } from 'states/atoms/TodoListFilterState'
 
 const TodoListFilters: React.FC = () => {
   const [filter, setFilter] = useRecoilState(todoListFilterState)

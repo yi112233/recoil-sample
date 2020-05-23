@@ -1,5 +1,5 @@
 import React, { ChangeEvent } from 'react'
-import { TodoItem } from '../../states/atoms/TodoListState'
+import { TodoItem } from 'states/atoms/TodoListState'
 
 type Props = {
   item: TodoItem,

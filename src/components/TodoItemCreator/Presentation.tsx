@@ -1,6 +1,6 @@
 import React, { useState, ChangeEvent } from 'react'
 import { useSetRecoilState } from 'recoil'
-import { todoListState } from '../../states/atoms/TodoListState'
+import { todoListState } from 'states/atoms/TodoListState'
 
 let id: number = 0
 function getId(): number {
