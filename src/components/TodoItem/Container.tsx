@@ -1,12 +1,14 @@
 import React, { ChangeEvent } from 'react'
 import { useRecoilState } from 'recoil'
-import { todoListState, TodoList, TodoItem } from '../states/atoms/TodoListState'
+import { todoListState, TodoList, TodoItem } from '../../states/atoms/TodoListState'
+
+import Presentation from './Presentation'
 
 type Props = {
   item: TodoItem,
 }
 
-const Todo: React.FC<Props> = ({item}) => {
+const Container: React.FC<Props> = ({item}) => {
   const [todoList, setTodoList] = useRecoilState(todoListState)
   const index = todoList.findIndex((listItem) => listItem === item)
 
@@ -35,15 +37,12 @@ const Todo: React.FC<Props> = ({item}) => {
   }
 
   return (
-    <div>
-      <input type="text" value={item.text} onChange={editItemText} />
-      <input
-        type="checkbox"
-        checked={item.isComplete}
-        onChange={toggleItemCompletion}
-      />
-      <button onClick={deleteItem}>X</button>
-    </div>
+    <Presentation
+      item={item}
+      editItemText={editItemText}
+      toggleItemCompletion={toggleItemCompletion}
+      deleteItem={deleteItem}
+    />
   )
 }
 
@@ -55,4 +54,4 @@ function removeItemAtIndex(arr: TodoList, index: number): TodoList {
   return [...arr.slice(0, index), ...arr.slice(index + 1)]
 }
 
-export default Todo
+export default Container
